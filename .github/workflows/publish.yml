@@ -36,7 +36,7 @@ jobs:
 
     environment:
       name: pypi
-      url: https://pypi.org/project/indian-bank-statement-parser/
+      url: https://pypi.org/project/bank-statement-parser-v1/
 
     permissions:
       id-token: write   # required for PyPI Trusted Publishing (no API token needed)
