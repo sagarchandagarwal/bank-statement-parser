@@ -3,7 +3,7 @@ import uuid
 import traceback
 from flask import Flask, request, jsonify, send_file, render_template
 from flask_cors import CORS
-from parsers.detector import detect_and_parse
+from bank_statement_parser import parse as detect_and_parse
 import openpyxl
 from openpyxl.styles import Font, Alignment, Border, Side, PatternFill
 import json
@@ -48,7 +48,7 @@ def parse_pdf():
     try:
         result = detect_and_parse(filepath, password=password if password else None)
 
-        if result is None or len(result['transactions']) == 0:
+        if len(result['transactions']) == 0:
             return jsonify({'error': 'Could not parse any transactions from this PDF. The bank format may not be supported or the PDF may be password-protected.'}), 400
 
         return jsonify({
@@ -58,6 +58,8 @@ def parse_pdf():
             'filename': file.filename
         })
 
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 400
     except Exception as e:
         traceback.print_exc()
         return jsonify({'error': f'Error parsing PDF: {str(e)}'}), 500

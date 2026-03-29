@@ -26,3 +26,11 @@ DIRECTOR's Bank Statements/
 
 # Env
 .env
+
+# PyPI credentials — never commit
+.pypirc
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

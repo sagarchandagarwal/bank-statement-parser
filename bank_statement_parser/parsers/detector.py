@@ -5,17 +5,17 @@ then dispatches to the appropriate parser.
 """
 import pdfplumber
 import re
-from parsers.sbi_bank import parse_sbi_bank
-from parsers.sbi_credit import parse_sbi_credit
-from parsers.hdfc_bank import parse_hdfc_bank
-from parsers.hdfc_credit import parse_hdfc_credit
-from parsers.yes_bank import parse_yes_bank
-from parsers.yes_credit import parse_yes_credit
-from parsers.rbl_bank import parse_rbl_bank
-from parsers.rbl_credit import parse_rbl_credit
-from parsers.indusind_credit import parse_indusind_credit
-from parsers.one_credit import parse_one_credit
-from parsers.standard_bank import parse_standard_bank
+from .sbi_bank import parse_sbi_bank
+from .sbi_credit import parse_sbi_credit
+from .hdfc_bank import parse_hdfc_bank
+from .hdfc_credit import parse_hdfc_credit
+from .yes_bank import parse_yes_bank
+from .yes_credit import parse_yes_credit
+from .rbl_bank import parse_rbl_bank
+from .rbl_credit import parse_rbl_credit
+from .indusind_credit import parse_indusind_credit
+from .one_credit import parse_one_credit
+from .standard_bank import parse_standard_bank
 
 
 def detect_bank_type(text, first_page_text=''):
